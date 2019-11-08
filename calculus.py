@@ -1,0 +1,1 @@
+# Função que a gente faz as resoluções dos projetos
