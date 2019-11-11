@@ -9,6 +9,7 @@ while True:
         break;
     # Projeto 1
     elif (choice == 1):
+        funcao();
         pass; # projeto1();
     # Projeto 2
     elif (choice == 2):
