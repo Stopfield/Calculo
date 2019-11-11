@@ -14,4 +14,4 @@ while True:
     elif (choice == 2):
         pass; # projeto2();
     else:
-        print('Opção inválida!\n');
+        print('Opção inválida!');
