@@ -1,5 +1,5 @@
 import math as mt
-from mainProjeto import Projeto
+from Projeto import Projeto
 
 # Definição da função do projeto2
 class Projeto2(Projeto):
