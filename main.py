@@ -10,11 +10,11 @@ while True:
 
     # Projeto 1
     elif (choice == 1):
-        pass; # projeto1();
+        pass; # solucionaProjeto2();
 
     # Projeto 2
     elif (choice == 2):
-        pass; # projeto2();
-        
+        pass; # solucionaProjeto5();
+
     else:
         print('Opção inválida!');
