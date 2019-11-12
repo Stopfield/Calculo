@@ -1,8 +1,5 @@
-import math as mt
-
 # Classe mãe da qual os dois projetos serão derivados
 class Projeto:
-    
     
     intervalo1 = 0;
     intervalo2 = 0;
