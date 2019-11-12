@@ -18,11 +18,11 @@ class Projeto:
         print('De %d a %d' %(self.intervalo1, self.intervalo2));
 
     # Funções para a qual faremos os cálculos e acharemos as áreas
-    def funcaoProjeto(self, x = 0):
+    def funcaoProjeto(self, x):
         pass;
 
     # Calcula a área a partir do ponto esquerdo
-    def ESQ(self, n = 0):
+    def ESQ(self, n):
         base = (self.intervalo2 - self.intervalo1) / n;
         x = self.intervalo1;
         area = 0;
@@ -34,7 +34,7 @@ class Projeto:
         return area;
     
     # Calcula a área a partir do ponto direito
-    def DIR(self, n = 0):
+    def DIR(self, n):
         base = (self.intervalo2 - self.intervalo1) / n;
         x = self.intervalo1;
         area = 0;
@@ -49,7 +49,7 @@ class Projeto:
         return area;
     
     # Calcula a área a partir do ponto médio
-    def MED(self, n = 0):
+    def MED(self, n):
         base = (self.intervalo2 - self.intervalo1) / n;
         x = self.intervalo1;
         area = 0;
@@ -63,7 +63,7 @@ class Projeto:
         return area;
     
     # Calcula a área a partir de trapézios, ao invés de retângulos
-    def TRAP(self, n = 0):
+    def TRAP(self, n):
         
         # A área do método do trapézio tem uma formula bem simples, pode ser aplicada
         area = (self.ESQ(n) + self.DIR(n)) / 2
@@ -71,7 +71,7 @@ class Projeto:
         return area;
 
     # Calcula a área a partir da fórmula de Simpson
-    def SIMP(self, peso, n = 0):
+    def SIMP(self, peso, n):
         # Fórmula de simpson, sendo definido um peso para a função MED
         area = (peso * self.MED(n) + self.TRAP(n)) / (peso + 1);
         
