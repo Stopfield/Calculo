@@ -15,6 +15,6 @@ def solucionaProjeto2():
 ##############
 
 
-def SolucionaProjeto5():
+def solucionaProjeto5():
     # Inicializa o objeto
     projeto5 = Projeto5(0, 2);
