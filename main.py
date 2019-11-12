@@ -1,5 +1,5 @@
 # Função em que a gente resolve os problemas
-from calculus import * # Importa as funções e métodos do "calculos.py"
+from calculus import * # Importa as funções e métodos do "calculus.py"
 
 while True:
     choice = int(input('Escolha a questão a ser resolvida: '));
@@ -9,6 +9,7 @@ while True:
         break;
     # Projeto 1
     elif (choice == 1):
+        proje
         pass; # projeto1();
     # Projeto 2
     elif (choice == 2):
