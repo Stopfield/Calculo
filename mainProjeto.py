@@ -76,7 +76,3 @@ class Projeto:
         area = (peso * self.MED(n) + self.TRAP(n)) / (peso + 1);
         
         return area;
-
-
-
-    

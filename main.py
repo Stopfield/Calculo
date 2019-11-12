@@ -6,9 +6,11 @@ while True:
     # Sair do programa
     if (choice <= 0):
         break;
+
     # Projeto 1
     elif (choice == 1):
         pass; # projeto1();
+        
     # Projeto 2
     elif (choice == 2):
         pass; # projeto2();
