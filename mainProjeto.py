@@ -3,7 +3,6 @@ import math as mt
 # Classe mãe da qual os dois projetos serão derivados
 class Projeto:
     
-
     
     intervalo1 = 0;
     intervalo2 = 0;
@@ -13,7 +12,7 @@ class Projeto:
         self.intervalo1 = intervalo1;
         self.intervalo2 = intervalo2;
     
-    # Função caso o usuário queira alterar o valor dos intervalos
+    # Caso o usuário queira alterar o valor dos intervalos
     def setIntervalos (self, intervalo1, intervalo2):
         self.intervalo1 = intervalo1;
         self.intervalo2 = intervalo2;
@@ -25,7 +24,7 @@ class Projeto:
     def funcaoProjeto(self, x = 0):
         pass;
 
-    # Função que calcula a área a partir do ponto esquerdo
+    # Calcula a área a partir do ponto esquerdo
     def ESQ(self, n = 0):
         base = (self.intervalo2 - self.intervalo1) / n;
         x = self.intervalo1;
@@ -37,7 +36,7 @@ class Projeto:
             x += base;
         return area;
     
-    # Função que calcula a área a partir do ponto direito
+    # Calcula a área a partir do ponto direito
     def DIR(self, n = 0):
         base = (self.intervalo2 - self.intervalo1) / n;
         x = self.intervalo1;
@@ -52,7 +51,7 @@ class Projeto:
             x += base;
         return area;
     
-    # Função que calcula a área a partir do ponto médio
+    # Calcula a área a partir do ponto médio
     def MED(self, n = 0):
         base = (self.intervalo2 - self.intervalo1) / n;
         x = self.intervalo1;
@@ -66,7 +65,7 @@ class Projeto:
             x += base;
         return area;
     
-    # Função que calcula a área a partir de trapézios, ao invés de retângulos
+    # Calcula a área a partir de trapézios, ao invés de retângulos
     def TRAP(self, n = 0):
         
         # A área do método do trapézio tem uma formula bem simples, pode ser aplicada
@@ -74,6 +73,7 @@ class Projeto:
 
         return area;
 
+    # Calcula a área a partir da fórmula de Simpson
     def SIMP(self, peso, n = 0):
         # Fórmula de simpson, sendo definido um peso para a função MED
         area = (peso * self.MED(n) + self.TRAP(n)) / (peso + 1);
