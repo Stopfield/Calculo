@@ -2,12 +2,21 @@
 from projectDefinition import *
 from scipy.integrate import quad;
 
+
+
+errors = {
+    "ESQ"  : 0,
+    "DIR"  : 1,
+    "MED"  : 2,
+    "TRAP" : 3,
+    "SIMP" : 4
+}
+
 def createTableOfContent(listaDeErros, rectangles, method):
     print('\n\n n     | %s' %(method));
     for i in range(len(rectangles)):
         print(' %d  ->  %.50f  ' %(rectangles[i], listaDeErros[i]));
-    print('\n\n');
-    
+    print('\n\n'); 
 
 ##############
 # Projeto 2
@@ -18,14 +27,6 @@ def solucionaProjeto2():
     
     # Inicializa o objeto
     projeto2 = Projeto2(0, 2);
-
-    errors = {
-        "ESQ"  : 0,
-        "DIR"  : 1,
-        "MED"  : 2,
-        "TRAP" : 3,
-        "SIMP" : 4
-    }
 
     # Número de retângulos usados para o cálculo do erro
     numRetangulos = [2, 10, 100, 1000];
@@ -67,14 +68,6 @@ def solucionaProjeto5():
 
     # Inicializa o objeto
     projeto5 = Projeto5(0, 2);
-
-    errors = {
-        "ESQ"  : 0,
-        "DIR"  : 1,
-        "MED"  : 2,
-        "TRAP" : 3,
-        "SIMP" : 4
-    }
 
     # Número de retângulos usados para o cálculo do erro
     numRetangulos = [2, 10, 100, 1000];
