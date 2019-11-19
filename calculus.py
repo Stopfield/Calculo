@@ -2,6 +2,15 @@
 from projectDefinition import *
 from scipy.integrate import quad;
 
+
+
+def criarTabela(listaDeErros, rectangles, method):
+    print('\n\n n     | Método');
+    for i in range(len(rectangles)):
+        print(' %d  ->  %f  ' %(rectangles[i], listaDeErros[i]));
+    print('\n\n');
+    
+
 ##############
 # Projeto 2
 ##############
@@ -13,9 +22,9 @@ def solucionaProjeto2():
     projeto2 = Projeto2(0, 2);
 
     errors = {
-        "DIR" : 0,
-        "ESQ" : 1,
-        "MED" : 2,
+        "DIR"  : 0,
+        "ESQ"  : 1,
+        "MED"  : 2,
         "TRAP" : 3,
         "SIMP" : 4
     }
@@ -37,15 +46,20 @@ def solucionaProjeto2():
         choice = int(input('Qual o método de integração? \n >  '))
 
         if (choice == 1):
-            projeto2.calculateError(errors["DIR"], numRetangulos);
+            listaErros = projeto2.calculateError(errors["DIR"], numRetangulos);
         elif (choice == 2):
-            projeto2.calculateError(errors["ESQ"], numRetangulos);
+            listaErros = projeto2.calculateError(errors["ESQ"], numRetangulos);
         elif (choice == 3):
-            projeto2.calculateError(errors["MED"], numRetangulos);
+            listaErros = projeto2.calculateError(errors["MED"], numRetangulos);
         elif (choice == 4):
-            projeto2.calculateError(errors["TRAP"], numRetangulos);
+            listaErros = projeto2.calculateError(errors["TRAP"], numRetangulos);
         elif (choice == 5):
-            projeto2.calculateError(errors["SIMP"], numRetangulos);
+            listaErros = projeto2.calculateError(errors["SIMP"], numRetangulos);
+        else:
+            break;
+        
+
+        criarTabela(listaErros, numRetangulos, choice);
 
 
 ##############
@@ -72,7 +86,7 @@ def solucionaProjeto5():
 
     while (choice > 0):
 
-        print(' => Projeto 2 ');
+        print(' \n\n=> Projeto 2 ');
         print(' > Digite um número menor ou igual a 0 para sair');
         print(' ( 1 ) ESQ');
         print(' ( 2 ) DIR');
@@ -83,12 +97,14 @@ def solucionaProjeto5():
         choice = int(input('Qual o método de integração? \n >  '))
 
         if (choice == 1):
-            projeto5.calculateError(errors["DIR"], numRetangulos);
+            listaErros = projeto5.calculateError(errors["DIR"], numRetangulos);
         elif (choice == 2):
-            projeto5.calculateError(errors["ESQ"], numRetangulos);
+            listaErros = projeto5.calculateError(errors["ESQ"], numRetangulos);
         elif (choice == 3):
-            projeto5.calculateError(errors["MED"], numRetangulos);
+            listaErros = projeto5.calculateError(errors["MED"], numRetangulos);
         elif (choice == 4):
-            projeto5.calculateError(errors["TRAP"], numRetangulos);
+            listaErros = projeto5.calculateError(errors["TRAP"], numRetangulos);
         elif (choice == 5):
-            projeto5.calculateError(errors["SIMP"], numRetangulos);
+            listaErros = projeto5.calculateError(errors["SIMP"], numRetangulos);
+    
+        criarTabela(listaErros, numRetangulos, choice);

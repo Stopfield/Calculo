@@ -44,7 +44,7 @@ class Projeto:
 
         for i in range(n):
             # area = y * x 
-            area = self.funcaoProjeto(x) * base;
+            area += self.funcaoProjeto(x) * base;
             x += base;
         return area;
     
@@ -59,7 +59,7 @@ class Projeto:
 
         for i in range(n):
             # area = y * x 
-            area = self.funcaoProjeto(x) * base;
+            area += self.funcaoProjeto(x) * base;
             x += base;
         return area;
     
@@ -74,8 +74,9 @@ class Projeto:
         for i in range(n):
             # Aqui pega-se o valor da função no ponto médio
             # area = y * x 
-            area = self.funcaoProjeto(pontoMedio) * base;
-            x += base;
+            area += self.funcaoProjeto(pontoMedio) * base;
+            pontoMedio += base;
+
         return area;
     
     # Calcula a área a partir de trapézios, ao invés de retângulos
@@ -104,31 +105,36 @@ class Projeto:
         # Para ESQ
         if (integrationMethod == 0):
             for n in numberOfRectangles:
-                error = quad(self.funcaoProjeto, 0, 2)[0] - self.ESQ(n);
+                integral = quad(self.funcaoProjeto, 0, 2)[0]
+                error = integral - self.ESQ(n);
                 listError.append(error);
 
         # Para DIR
         elif (integrationMethod == 1):
             for n in numberOfRectangles:
-                error = quad(self.funcaoProjeto, 0, 2)[0] - self.DIR(n);
+                integral = quad(self.funcaoProjeto, 0, 2)[0]
+                error = integral - self.DIR(n);
                 listError.append(error);
 
         # Para MED
         elif (integrationMethod == 2):
             for n in numberOfRectangles:
-                error = quad(self.funcaoProjeto, 0, 2)[0] - self.MED(n);
+                integral = quad(self.funcaoProjeto, 0, 2)[0]
+                error = integral - self.MED(n);
                 listError.append(error);
             
         # Para TRAP
         elif (integrationMethod == 3):
             for n in numberOfRectangles:
-                error = quad(self.funcaoProjeto, 0, 2)[0] - self.TRAP(n);
+                integral = quad(self.funcaoProjeto, 0, 2)[0]
+                error = integral - self.TRAP(n);
                 listError.append(error);
 
         # Para SIMP
         elif (integrationMethod == 4):
             for n in numberOfRectangles:
-                error = quad(self.funcaoProjeto, 0, 2)[0] - self.SIMP(n);
+                integral = quad(self.funcaoProjeto, 0, 2)[0]
+                error = integral - self.SIMP(n);
                 listError.append(error);
 
         return listError;

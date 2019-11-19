@@ -15,6 +15,6 @@ while True:
     # Projeto 2
     elif (choice == 2):
         solucionaProjeto5();
-
+        
     else:
         print('Opção inválida!');
