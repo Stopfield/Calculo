@@ -2,8 +2,10 @@
 from projectDefinition import *
 from scipy.integrate import quad;
 
+# Número de retângulos usados para o cálculo do erro
+numRetangulos = [2, 10, 100, 1000];
 
-
+# Dicitionary para melhorar a leitura do código
 errors = {
     "ESQ"  : 0,
     "DIR"  : 1,
@@ -12,6 +14,7 @@ errors = {
     "SIMP" : 4
 }
 
+# Cria a tabela de erros
 def createTableOfContent(listaDeErros, rectangles, method):
     print('\n\n n     | %s' %(method));
     for i in range(len(rectangles)):
@@ -27,9 +30,6 @@ def solucionaProjeto2():
     
     # Inicializa o objeto
     projeto2 = Projeto2(0, 2);
-
-    # Número de retângulos usados para o cálculo do erro
-    numRetangulos = [2, 10, 100, 1000];
 
     choice = 1;
 
@@ -69,9 +69,6 @@ def solucionaProjeto5():
     # Inicializa o objeto
     projeto5 = Projeto5(0, 2);
 
-    # Número de retângulos usados para o cálculo do erro
-    numRetangulos = [2, 10, 100, 1000];
-
     choice = 1;
 
     while (choice > 0):
@@ -96,5 +93,7 @@ def solucionaProjeto5():
             listaErros = projeto5.calculateError(errors["TRAP"], numRetangulos);
         elif (choice == 5):
             listaErros = projeto5.calculateError(errors["SIMP"], numRetangulos);
+        else:
+            break;
     
         createTableOfContent(listaErros, numRetangulos, list(errors.keys())[choice - 1]);
