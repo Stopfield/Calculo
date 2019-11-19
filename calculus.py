@@ -2,12 +2,10 @@
 from projectDefinition import *
 from scipy.integrate import quad;
 
-
-
-def criarTabela(listaDeErros, rectangles, method):
-    print('\n\n n     | Método');
+def createTableOfContent(listaDeErros, rectangles, method):
+    print('\n\n n     | %s' %(method));
     for i in range(len(rectangles)):
-        print(' %d  ->  %f  ' %(rectangles[i], listaDeErros[i]));
+        print(' %d  ->  %.50f  ' %(rectangles[i], listaDeErros[i]));
     print('\n\n');
     
 
@@ -22,8 +20,8 @@ def solucionaProjeto2():
     projeto2 = Projeto2(0, 2);
 
     errors = {
-        "DIR"  : 0,
-        "ESQ"  : 1,
+        "ESQ"  : 0,
+        "DIR"  : 1,
         "MED"  : 2,
         "TRAP" : 3,
         "SIMP" : 4
@@ -58,8 +56,7 @@ def solucionaProjeto2():
         else:
             break;
         
-
-        criarTabela(listaErros, numRetangulos, choice);
+        createTableOfContent(listaErros, numRetangulos, list( errors.keys() )[choice - 1]);
 
 
 ##############
@@ -72,8 +69,8 @@ def solucionaProjeto5():
     projeto5 = Projeto5(0, 2);
 
     errors = {
-        "DIR"  : 0,
-        "ESQ"  : 1,
+        "ESQ"  : 0,
+        "DIR"  : 1,
         "MED"  : 2,
         "TRAP" : 3,
         "SIMP" : 4
@@ -107,4 +104,4 @@ def solucionaProjeto5():
         elif (choice == 5):
             listaErros = projeto5.calculateError(errors["SIMP"], numRetangulos);
     
-        criarTabela(listaErros, numRetangulos, choice);
+        createTableOfContent(listaErros, numRetangulos, list(errors.keys())[choice - 1]);
