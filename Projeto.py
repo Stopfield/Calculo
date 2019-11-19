@@ -1,8 +1,13 @@
+from scipy.integrate import quad
+
 # Classe mãe da qual os dois projetos serão derivados
 class Projeto:
     
     intervalo1 = 0;
     intervalo2 = 0;
+
+    # Peso no método de Simpson
+    simpWeight = 2;
 
     # É preciso ter intervalos para a função, caso contrario, ela não poderá ser calculada
     def __init__(self, intervalo1, intervalo2):
@@ -14,12 +19,22 @@ class Projeto:
         self.intervalo1 = intervalo1;
         self.intervalo2 = intervalo2;
     
+    # Define o peso no método de Simpson
+    def setSimpWeight(self, weight):
+        self.simpWeight = weight;
+
+    # Retorna o peso utilizado na função de Simpson
+    def getSimpWeight(self):
+        return self.simpWeight;
+
+    # Retorna os intervalos
     def getIntervalos (self):
-        print('De %d a %d' %(self.intervalo1, self.intervalo2));
+        intervals = [self.intervalo1, self.intervalo2];
+        return intervals;
 
     # Funções para a qual faremos os cálculos e acharemos as áreas
     def funcaoProjeto(self, x):
-        pass;
+        return x;
 
     # Calcula a área a partir do ponto esquerdo
     def ESQ(self, n):
@@ -53,6 +68,7 @@ class Projeto:
         base = (self.intervalo2 - self.intervalo1) / n;
         x = self.intervalo1;
         area = 0;
+
         pontoMedio = (x + base) / 2;
 
         for i in range(n):
@@ -71,8 +87,48 @@ class Projeto:
         return area;
 
     # Calcula a área a partir da fórmula de Simpson
-    def SIMP(self, peso, n):
+    def SIMP(self, n):
         # Fórmula de simpson, sendo definido um peso para a função MED
-        area = (peso * self.MED(n) + self.TRAP(n)) / (peso + 1);
+        area = (self.simpWeight * self.MED(n) + self.TRAP(n)) / (self.simpWeight + 1);
         
         return area;
+    
+    # Retorna o erro de determinado método de integração
+    def calculateError(self, integrationMethod, numberOfRectangles = []): 
+
+        # ERRO = VALOR EXATO - VALOR APROXIMADO
+        # -> Logo, seria o valor da integral com o valor retornado pelos métodos da classe "Projeto"
+
+        listError = [];
+
+        # Para ESQ
+        if (integrationMethod == 0):
+            for n in numberOfRectangles:
+                error = quad(self.funcaoProjeto, 0, 2)[0] - self.ESQ(n);
+                listError.append(error);
+
+        # Para DIR
+        elif (integrationMethod == 1):
+            for n in numberOfRectangles:
+                error = quad(self.funcaoProjeto, 0, 2)[0] - self.DIR(n);
+                listError.append(error);
+
+        # Para MED
+        elif (integrationMethod == 2):
+            for n in numberOfRectangles:
+                error = quad(self.funcaoProjeto, 0, 2)[0] - self.MED(n);
+                listError.append(error);
+            
+        # Para TRAP
+        elif (integrationMethod == 3):
+            for n in numberOfRectangles:
+                error = quad(self.funcaoProjeto, 0, 2)[0] - self.TRAP(n);
+                listError.append(error);
+
+        # Para SIMP
+        elif (integrationMethod == 4):
+            for n in numberOfRectangles:
+                error = quad(self.funcaoProjeto, 0, 2)[0] - self.SIMP(n);
+                listError.append(error);
+
+        return listError;
