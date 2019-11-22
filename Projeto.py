@@ -105,35 +105,35 @@ class Projeto:
         # Para ESQ
         if (integrationMethod == 0):
             for n in numberOfRectangles:
-                integral = quad(self.funcaoProjeto, 0, 2)[0]
+                integral = quad(self.funcaoProjeto, self.intervalo1, self.intervalo2)[0]
                 error = integral - self.ESQ(n);
                 listError.append(error);
 
         # Para DIR
         elif (integrationMethod == 1):
             for n in numberOfRectangles:
-                integral = quad(self.funcaoProjeto, 0, 2)[0]
+                integral = quad(self.funcaoProjeto, self.intervalo1, self.intervalo2)[0]
                 error = integral - self.DIR(n);
                 listError.append(error);
 
         # Para MED
         elif (integrationMethod == 2):
             for n in numberOfRectangles:
-                integral = quad(self.funcaoProjeto, 0, 2)[0]
+                integral = quad(self.funcaoProjeto, self.intervalo1, self.intervalo2)[0]
                 error = integral - self.MED(n);
                 listError.append(error);
             
         # Para TRAP
         elif (integrationMethod == 3):
             for n in numberOfRectangles:
-                integral = quad(self.funcaoProjeto, 0, 2)[0]
+                integral = quad(self.funcaoProjeto, self.intervalo1, self.intervalo2)[0]
                 error = integral - self.TRAP(n);
                 listError.append(error);
 
         # Para SIMP
         elif (integrationMethod == 4):
             for n in numberOfRectangles:
-                integral = quad(self.funcaoProjeto, 0, 2)[0]
+                integral = quad(self.funcaoProjeto, self.intervalo1, self.intervalo2)[0]
                 error = integral - self.SIMP(n);
                 listError.append(error);
 
