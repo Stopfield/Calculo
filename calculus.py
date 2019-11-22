@@ -1,5 +1,5 @@
 # Aqui é onde os projetos serão resolvidos
-from projectDefinition import *
+from projectDefinition import Projeto2, Projeto5
 from scipy.integrate import quad;
 
 # Número de retângulos usados para o cálculo do erro
@@ -45,9 +45,9 @@ def solucionaProjeto2():
         choice = int(input('Qual o método de integração? \n >  '))
 
         if (choice == 1):
-            listaErros = projeto2.calculateError(errors["DIR"], numRetangulos);
-        elif (choice == 2):
             listaErros = projeto2.calculateError(errors["ESQ"], numRetangulos);
+        elif (choice == 2):
+            listaErros = projeto2.calculateError(errors["DIR"], numRetangulos);
         elif (choice == 3):
             listaErros = projeto2.calculateError(errors["MED"], numRetangulos);
         elif (choice == 4):
@@ -84,9 +84,9 @@ def solucionaProjeto5():
         choice = int(input('Qual o método de integração? \n >  '))
 
         if (choice == 1):
-            listaErros = projeto5.calculateError(errors["DIR"], numRetangulos);
-        elif (choice == 2):
             listaErros = projeto5.calculateError(errors["ESQ"], numRetangulos);
+        elif (choice == 2):
+            listaErros = projeto5.calculateError(errors["DIR"], numRetangulos);
         elif (choice == 3):
             listaErros = projeto5.calculateError(errors["MED"], numRetangulos);
         elif (choice == 4):
